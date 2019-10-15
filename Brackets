@@ -1,0 +1,30 @@
+#https://app.codility.com/programmers/lessons/7-stacks_and_queues/brackets/
+
+def solution(A):
+    if len(A) % 2:
+        return 0
+    mystack= []
+    myarr = ['(',')','[',']','(',')']
+    foundone = 0
+    for x in A:
+        if x in myarr:
+            foundone =1
+            pos = myarr.index(x)
+            if not pos % 2:
+                mystack.append(x)
+            else:
+                if len(mystack) == 0:
+                    return 0
+                if mystack[len(mystack)-1] in myarr[pos-1]:
+                    mystack.pop()
+    if foundone == 0:
+        return 0
+    if len(mystack) == 0:
+        return 1
+    else:
+        return 0
+
+
+print(solution("{[()()]}"))
+print(solution("{[()(])}"))
+print(solution(""))
