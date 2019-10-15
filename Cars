@@ -1,0 +1,13 @@
+https://app.codility.com/programmers/lessons/5-prefix_sums/passing_cars/
+
+def solution(A):
+    cars = 0
+    ecars = 0
+    for x in A:
+        if x == 1:
+            cars += ecars
+        else:
+            ecars += 1
+        if cars > 1000000000:
+            return -1
+    return cars
