@@ -1,0 +1,13 @@
+def solution(A):
+    sortedA = sorted(A)
+    currentValue = 0
+    for n in sortedA:
+        if n - currentValue > 1:
+            return currentValue + 1
+        if n - currentValue == 1:
+            currentValue = n
+
+
+
+    return currentValue + 1
+
