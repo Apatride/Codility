@@ -1,0 +1,30 @@
+package solution
+
+import (
+    "strconv"
+)
+
+func intToBinString(N int) string {
+    i64 := int64(N)
+    return strconv.FormatInt(i64, 2)
+}
+
+
+func Solution(N int) int {
+    // write your code in Go 1.4
+    binString := intToBinString(N)
+    charsArray := []rune(binString)
+    maxLength := 0
+    currMaxLength := 0
+    for i := 0; i < len(charsArray); i++ {
+        if charsArray[i] == '1' {
+            if maxLength < currMaxLength {
+            maxLength = currMaxLength
+            }
+            currMaxLength = 0
+        } else {
+            currMaxLength++
+        }
+    }
+    return maxLength
+}
